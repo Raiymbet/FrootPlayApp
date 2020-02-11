@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FrootPlayApp';
+  value: string = null;
+
+  constructor() {
+  }
 }
