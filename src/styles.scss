@@ -2,3 +2,30 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    .section-title {
+        font-size: 28px;
+        line-height: 1.5;        
+        text-transform: uppercase;
+        font-family: roboto slab,serif;
+        margin-top: 0;
+        margin-bottom: 0;
+        letter-spacing: .12em;
+    }
+    @media (min-width: 768px) {
+        .section-title {
+            font-size: 46px;
+            line-height: 1.13043;
+        }
+    }
+    hr {
+        width: 100px;
+        display: inline-block;
+        border-bottom: 2px solid #b7b7b7;
+        border-top: none;
+        margin-bottom: 30px;
+    }
+}
