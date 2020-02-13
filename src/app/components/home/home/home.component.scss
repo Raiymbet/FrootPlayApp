@@ -15,6 +15,7 @@
                 max-width: 600px;
                 height: auto;
                 padding: 0 15px;
+                cursor: pointer;
                 .banner-img {
                     display: block;
                     height: 350px;
@@ -125,12 +126,12 @@
         }
     }
     @media (min-width: 576px) {
-        .owl-slider {
+        .banner {
             height: 650px;
         }
     }
     @media (min-width: 440px) {
-        .owl-slider {
+        .banner {
             height: 600px;
         }
     }

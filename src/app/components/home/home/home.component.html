@@ -1,7 +1,7 @@
 <div class="content-wrapper">
   <section class="banner jarallax">
     <div class="movie-banners">
-      <div class="movie-banner" *ngFor="let banner of movieBanners">
+      <div class="movie-banner" matRipple *ngFor="let banner of movieBanners" (click)="goToMovieDetails(banner)">
         <div class="banner-img">
           <img class="" [src]="'/assets/images/movie-covers/'+banner.img">
         </div>
@@ -21,7 +21,7 @@
       <h2 class="section-title">Watch movies online</h2>
       <hr>
       <div class="movies-content">
-        <div class="movies-filter">          
+        <div class="movies-filter">
           <mat-accordion>
             <mat-expansion-panel [expanded]="panelOpenState" (opened)="panelOpenState = true"
               (closed)="panelOpenState = false">
@@ -32,31 +32,34 @@
               </mat-expansion-panel-header>
 
               <div class="filter-checkbox">
-                <mat-checkbox [color]="'primary'" *ngFor="let item of genres">{{ item }}</mat-checkbox>
+                <mat-checkbox [color]="'primary'" (change)="movieFilter($event, item)" *ngFor="let item of genres">{{ item.genreType }}</mat-checkbox>
               </div>
             </mat-expansion-panel>
           </mat-accordion>
         </div>
 
-        <div class="movies-result">
-          <mat-card class="movie-card" matRipple *ngFor="let movie of moviesList" (click)="goToMovieDetails(movie)">
-            <img mat-card-image [src]="'/assets/images/movie-covers/'+movie.img" [alt]="movie.name">
-            <mat-card-content class="movie-card-content">
-              <p class="movie-name">{{movie.name}}</p>
-              <p class="movie-genre">{{movie.genres.join(', ')}}</p>
-              <p class="movie-rate"><span>Rate:</span> {{movie.rate}}</p>
-              <p class="movie-genre">{{movie.length}}</p>
-            </mat-card-content>
-          </mat-card>
-
+        <div class="movies-right">
+          <div class="movies-result">
+            <mat-card class="movie-card" matRipple *ngFor="let movie of moviesList" (click)="goToMovieDetails(movie)">
+              <!-- <a [title]="movie.name + ' details'" [routerLink]="['/movie', movie.id]"> -->
+                <img mat-card-image [src]="'/assets/images/movie-covers/'+movie.img" [alt]="movie.name">
+                <mat-card-content class="movie-card-content">
+                  <p class="movie-name">{{movie.name}}</p>
+                  <p class="movie-genre">{{movie.genres.join(', ')}}</p>
+                  <p class="movie-rate"><span>Rate:</span> {{movie.rate}}</p>
+                  <p class="movie-genre">{{movie.length}}</p>
+                </mat-card-content>
+              <!-- </a> -->
+            </mat-card>
+          </div>
+      
           <mat-paginator [length]="length"
+            [pageIndex]="pageIndex"
             [pageSize]="pageSize"
             [pageSizeOptions]="pageSizeOptions"
-            (page)="pageEvent = $event">
+            (page)="paginateEvent($event)">
           </mat-paginator>
-        </div>
-        <ng-container >
-        </ng-container>
+        </div>        
       </div>
     </div>
   </section>

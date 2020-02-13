@@ -1,0 +1,32 @@
+.content-wrapper {
+    padding-top: 75px;    
+    .banner {
+        background-image: url('/assets/images/bg-image.jpg');
+        background-size: cover;
+        height: 460px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media (min-width: 1200px) {
+        .banner {
+            height: 750px;
+        }
+    } 
+    @media (min-width: 768px) {
+        .banner {
+            height: 740px;
+        }
+    }
+    @media (min-width: 576px) {
+        .banner {
+            height: 650px;
+        }
+    }
+    @media (min-width: 440px) {
+        .banner {
+            height: 600px;
+        }
+    }
+}
