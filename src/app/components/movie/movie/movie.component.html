@@ -1,4 +1,68 @@
 <div class="content-wrapper">
   <section class="banner jarallax">
+    <div class="back">
+      <button mat-raised-button color="primary" (click)="back()">Back</button>
+    </div>
+    
+    <div class="container">
+      <div class="left">
+        <mat-card class="movie-card" matRipple>
+          <img mat-card-image [src]="'/assets/images/movie-covers/'+movie.img" [alt]="movie.name">
+          <mat-card-content class="movie-card-content">
+            <p class="movie-rate">
+              <button mat-raised-button color="accent">
+                <mat-icon>favorite</mat-icon>
+                {{ movie.rate }}
+              </button>
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="right">
+        <mat-card class="movie-card" matRipple>
+          <mat-card-content class="movie-card-content">
+            <h1 class="movie-name">{{movie.name}}</h1>
+            <hr>
+            <p class="movie-genre">{{movie.description}}</p>
+            
+            <h3 class="movie-name">Genre: </h3>
+            <p class="movie-genre">{{movie.genres.join(', ')}}</p>
+
+            <h3 class="movie-name">Length: </h3>
+            <p class="movie-genre">{{movie.length}}</p>
+
+            <h3 class="movie-name">Key: </h3>
+            <p class="movie-genre">{{movie.key}}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Similar movies</h2>
+      <hr>
+
+      <div class="movies-right">
+        <div class="movies-result">
+          <mat-card class="movie-card" matRipple *ngFor="let movie of similarMovies" (click)="goToMovieDetails(movie)">
+            <!-- <a [title]="movie.name + ' details'" [routerLink]="['/movie', movie.id]"> -->
+              <img mat-card-image [src]="'/assets/images/movie-covers/'+movie.img" [alt]="movie.name">
+              <mat-card-content class="movie-card-content">
+                <p class="movie-name">{{movie.name}}</p>
+                <p class="movie-genre">{{movie.genres.join(', ')}}</p>
+                <p class="movie-rate">
+                  <button mat-raised-button color="accent">
+                    <mat-icon>favorite</mat-icon>
+                    {{ movie.rate }}
+                  </button>
+                </p>
+                <p class="movie-genre">{{movie.length}}</p>
+              </mat-card-content>
+            <!-- </a> -->
+          </mat-card>
+        </div>
+      </div>
+    </div>
   </section>
 </div>

@@ -4,6 +4,7 @@ import { genreType } from 'src/app/shared/models/movie.model';
 import 'jarallax';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import { DataBindService } from 'src/app/shared/services/data-bind.service';
 declare var jarallax: any;
 
 @Component({
@@ -27,9 +28,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
   // MatPaginator Output
   pageEvent: PageEvent;
   
-  constructor(private router: Router) {
-    this.movieBanners.push(movies[Math.floor(Math.random() * movies.length)]);
-    this.movieBanners.push(movies[Math.floor(Math.random() * movies.length)]);
+  constructor(
+    private router: Router,
+    private dataBindService: DataBindService) {
+      this.movieBanners.push(movies[Math.floor(Math.random() * movies.length)]);
+      this.movieBanners.push(movies[Math.floor(Math.random() * movies.length)]);
   }
 
   ngOnInit() {
@@ -48,7 +51,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }) 
   }
 
-  goToMovieDetails(movie) {
+  goToMovieDetails(movie: any) {
+    this.dataBindService.sendMovie(movie);
     this.router.navigate(['/movie', movie.id]);
   }
 
@@ -84,5 +88,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
     this.pageIndex = 0;
     this.length = this.moviesFiltered.length > 0 ? this.moviesFiltered.length : movies.length;
+    this.pageMovie(this.pageIndex, this.pageSize);
   }
 }

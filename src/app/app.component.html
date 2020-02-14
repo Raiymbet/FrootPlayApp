@@ -1,25 +1,25 @@
 <nav class="navbar">
-    <div class="navbar-inner">
-        <div class="navbar-brand">
-            <strong>FROotPlay</strong>
-        </div>
-        <div class="navbar-search">
-            <input type="search" name="s" placeholder="Search..." autocomplete="off">
-        </div>
-    </div>
+  <div class="navbar-inner">
+      <div class="navbar-brand" (click)="goHome()">
+        <strong>FROotPlay</strong>
+      </div>
+      <div class="navbar-search">
+        <input type="search" name="s" placeholder="Search..." autocomplete="off">
+      </div>
+  </div>
 </nav>
 
 <router-outlet></router-outlet>
 
 <footer class="page-footer">
-    <section class="footer-content">
-      <div class="container">
-        <div class="navbar-brand">FROotPlay</div>
-      </div>
-    </section>
-    <section class="footer-copyright">
-      <div class="container">
-        <p class="rights"><span>©&nbsp;</span><span class="copyright-year">2020</span><span>&nbsp;</span><span>All Rights Reserved.</span><span>&nbsp;</span><span>Terms of Use.</span></p>
-      </div>
-    </section>
+  <section class="footer-content">
+    <div class="container">
+      <div class="navbar-brand" (click)="goHome()">FROotPlay</div>
+    </div>
+  </section>
+  <section class="footer-copyright">
+    <div class="container">
+      <p class="rights"><span>©&nbsp;</span><span class="copyright-year">2020</span><span>&nbsp;</span><span>All Rights Reserved.</span><span>&nbsp;</span><span>Terms of Use.</span></p>
+    </div>
+  </section>
 </footer>

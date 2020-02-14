@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,10 @@ export class AppComponent {
   title = 'FrootPlayApp';
   value: string = null;
 
-  constructor() {
+  constructor(private route: Router) {
+  }
+
+  goHome() {
+    this.route.navigate(['home']);
   }
 }

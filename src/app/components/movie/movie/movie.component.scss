@@ -1,14 +1,52 @@
 .content-wrapper {
     padding-top: 75px;    
     .banner {
+        position: relative;
         background-image: url('/assets/images/bg-image.jpg');
         background-size: cover;
         height: 460px;
         display: flex;
-        align-items: center;
         justify-content: center;
+        padding-top: 30px;
+        .back {
+            position: absolute;
+            right: 1.5rem;
+            border-radius: .35rem;
+            padding: .5rem;
+            margin: 1.5rem;
+        }
     }
-
+    
+    .banner .container{
+        display: flex;
+        max-width: 1290px;
+        .left {
+            padding-left: 1.5rem;
+            padding-right: 1rem;
+            min-width: 320px;
+        }
+        .right {
+            width: 100%;
+            padding-left: 1rem;
+            padding-right: 1.5rem;
+        }
+    }
+    
+    .section .container {
+        display: flex;
+        flex-direction: column;
+        padding: 0.85rem;
+        .movies-right {
+            width: 100%;
+            .movies-result {
+                width: 100%;
+                display: flex;
+                flex-flow: wrap;
+                justify-content: center;
+            }
+        }
+    }
+    
     @media (min-width: 1200px) {
         .banner {
             height: 750px;
@@ -18,15 +56,48 @@
         .banner {
             height: 740px;
         }
+        .movie-card {
+            min-width: 230px;
+        }
     }
     @media (min-width: 576px) {
         .banner {
             height: 650px;
         }
     }
-    @media (min-width: 440px) {
-        .banner {
-            height: 600px;
+}
+
+.movie-card {
+    margin: 0 0 1.5rem 1.5rem;
+    position: relative;
+    cursor: pointer;
+    max-height: 494px;
+    .movie-card-content {
+        text-align: left;
+        .movie-name {
+            font-weight: 600;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            color: #3a3b45;
+        }
+        .movie-genre {
+            text-transform: capitalize;
+            color: #858796;
+            margin: 5px 0;
+        }
+        .movie-rate {
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     }
+}
+
+hr {
+    width: 100%;
+    display: inline-block;
+    border-bottom: 2px solid #b7b7b7;
+    border-top: none;
+    margin-bottom: 30px;
 }
