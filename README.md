@@ -2,6 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
 
+## Общая информация о фичах и приложении
+
+Использовался библиотека Angular material
+Архитектура: Lazy Loading Feature
+Страницы: Главная и Карточка фильма
+Функции: Каталог фильмов, Фильтрация по жанру, Поис по ключу, Пагинация, Список фильмов похожими жанрами у выбранного фильма
+
+## Необходимые команды чтобы запустить приложение
+
+1. Клонировать проект с репозитория: `git clone https://github.com/Raiymbet/FrootPlayApp.git`
+2. Установить библиотеки для запуска: `npm install`
+3. Запустить проект: `ng serve`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
