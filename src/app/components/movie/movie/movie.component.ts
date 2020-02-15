@@ -21,25 +21,16 @@ export class MovieComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private dataBindService: DataBindService,
     private location: Location) {
-      this.dataBindSubscription = this.dataBindService.getMovie().subscribe(movie => {
-        this.movie = movie;
-        if(movie) {
-          this.similarMovies = this.dataBindService.getMoviesByGenre(movie);
-        }
-      });
   }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      if(!this.movie) {
-        this.movie = this.dataBindService.getMovieByID(Number(params.get('movieId')));
-        this.similarMovies = this.dataBindService.getMoviesByGenre(this.movie);
-      }
+      this.movie = this.dataBindService.getMovieByID(Number(params.get('movieId')));
+      this.similarMovies = this.dataBindService.getMoviesByGenre(this.movie);
     });
   }
   
   goToMovieDetails(movie: any) {
-    this.dataBindService.sendMovie(movie);
     this.router.navigate(['/movie', movie.id]);
   }
 
@@ -48,6 +39,5 @@ export class MovieComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.dataBindSubscription.unsubscribe();
   }
 }

@@ -4,7 +4,21 @@
         <strong>FROotPlay</strong>
       </div>
       <div class="navbar-search">
-        <input type="search" name="s" placeholder="Search..." autocomplete="off">
+        <div class="keyword-wrapper">
+          <input [formControl]="queryField" type="search" placeholder="Search for movie..." autofocus/>
+        </div>
+        <ul class="filter-select">
+          <li *ngFor="let result of results" class="filter-select-list" (click)="goToMovieDetails(result)">
+            <img [src]="'/assets/images/movie-covers/'+result.img" [alt]="result.name">
+            <div class="info">
+              <p class="movie-name">{{result.name}}</p>
+              <p class="movie-genre">Genres: {{result.genres.join(', ')}}</p>
+              <p class="movie-genre">Rate: {{result.rate}}</p>
+              <p class="movie-genre">Length: {{result.length}}</p>
+            </div>
+          </li>
+        </ul>
+        <!-- <input type="search" name="s" placeholder="Search..." autocomplete="off"> -->
       </div>
   </div>
 </nav>

@@ -15,10 +15,6 @@ export class DataBindService {
     this.dataBind.next(movie);
   }
   
-  getMovie(): Observable<any> {
-    return this.dataBind.asObservable();
-  }
-
   getMovieByID(movieID: number) {
     return movies.find(m => m.id === movieID);
   }
@@ -35,5 +31,17 @@ export class DataBindService {
       }
       return result;
     }).slice(0, 6);
+  }
+
+  getSearchMovies(queryField): Observable<any> {
+    this.dataBind.next(
+      movies.filter(m => {
+        if(m.key.includes(queryField.toLowerCase())) {
+          return true;
+        }
+        return false;
+      })
+    )
+    return this.dataBind.asObservable();
   }
 }

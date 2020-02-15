@@ -52,7 +52,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   goToMovieDetails(movie: any) {
-    this.dataBindService.sendMovie(movie);
     this.router.navigate(['/movie', movie.id]);
   }
 
